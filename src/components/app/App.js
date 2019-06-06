@@ -6,7 +6,7 @@ import MainContainer from '../main/MainContainer'
 
 function App() {
   return (
-    <div className="App">
+    <div id="app">
       <NavContainer/>
       <MainContainer/>
     </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect} from 'react-redux'
 
-const NavContainer = ( {loggedInEntity} ) => {
+const NavContainer = ( {lIE} ) => {
 
   return (
     <div id="nav-container">
-      <div id="logo">
+      <div id="logo" className={lIE ? null : "center"}>
         CIRCULAR
       </div>
     </div>
@@ -15,7 +15,7 @@ const NavContainer = ( {loggedInEntity} ) => {
 
 const mapStateToProps = ({ app }) => {
   return {
-    loggedInEntity: app.loggedInEntity
+    lIE: app.loggedInEntity
   }
 }
 

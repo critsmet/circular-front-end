@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-const MainContainer = ( {loggedInEntity} ) => {
+import EntityFormContainer from '../entity-forms/EntityFormContainer.js'
+
+const MainContainer = ( {lIE} ) => {
+
   return (
-    <div>
-      { loggedInEntity ? "LOGGED IN" : "NOT LOGGED IN"}
+    <div id="main-container">
+      { lIE ? "LOGGED IN" : <EntityFormContainer />}
     </div>
   )
 }
 
 const mapStateToProps = ({ app }) => {
   return {
-    loggedInEntity: app.loggedInEntity
+    lIE: app.loggedInEntity
   }
 }
 

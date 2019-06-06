@@ -15,5 +15,62 @@ body {
 }
 
 #nav-container {
-  font-size: 4em;
+  font-size: 6em;
+}
+
+#app{
+  width: 980px;
+  height: 100vw;
+  margin: auto;
+  /* border-style: dashed; */
+}
+
+.center {
+  text-align: center
+}
+
+#form-select-container {
+  margin-top: 10vw;
+  text-align: center;
+}
+
+#entity-form-input-container {
+  margin-top: 10vw;
+  text-align: center;
+}
+
+.form-select {
+  width: 250px;
+  height: 50px;
+  font-size: 2.5em;
+  display: inline-block;
+  border-style: solid;
+  border-color: #48EB97;
+  border-width: 5px;
+  padding: 20px;
+  margin: 5px;
+}
+
+.form-select:hover{
+  cursor: pointer;
+}
+
+.form-input {
+  text-transform: uppercase;
+  display: inline-block;
+  color: #48EB97;
+  font-size: 2.5em;
+  outline: none;
+  background-color: #0B0A21;
+  border-color: #48EB97;
+  border-style: solid;
+  border-width: 5px;
+  width: 510px;
+  height: 50px;
+  padding: 20px;
+}
+
+.form-input::placeholder {
+  color: #48EB97;
+  text-transform: uppercase;
 }
