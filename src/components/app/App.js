@@ -1,16 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { checkForEntity } from './appMod'
 
 //components
 import NavContainer from '../nav/NavContainer'
 import MainContainer from '../main/MainContainer'
 
-function App() {
-  return (
+//need to find the best way to check for a user
+//probably best is to set loggedInEntity to not_checked first, and then check.
+
+const App = ({lIE, checkForEntity}) => {
+
+  const screenWhileChecking = () => {
+    //renders nothing on the screen while the entity is being checked
+    checkForEntity()
+    return (<div></div>)
+  }
+
+  return lIE === "nc" ? screenWhileChecking() : (
     <div id="app">
       <NavContainer/>
       <MainContainer/>
     </div>
-  );
+  )
 }
 
-export default App;
+const mapStateToProps = ({app}) => {
+  return {
+    lIE : app.loggedInEntity
+  }
+}
+
+export default connect(mapStateToProps, { checkForEntity })(App);

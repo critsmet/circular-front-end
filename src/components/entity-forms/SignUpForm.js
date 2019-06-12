@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { submitSignUpForm } from '../../store/mods/appMod'
+import { submitSignUpForm } from '../app/appMod'
+
+const initialState = {
+  page: 1,
+  name: "",
+  entity: "",
+  handle: "",
+  email: "",
+  password: "",
+  confirm_password: ""
+}
 
 const SignUpForm = ( {submitSignUpForm} ) => {
-
-  const initialState = {
-    page: 1,
-    name: "",
-    entity: "",
-    handle: "",
-    email: "",
-    password: "",
-    confirm_password: ""
-  }
 
   const [signUpState, changeSignUpState] = useState(initialState)
 
