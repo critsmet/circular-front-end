@@ -6,15 +6,15 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'SET_ENTITY':
-    return {
-      loggedInEntity: action.payload
-    }
+      return {
+        loggedInEntity: action.payload
+      }
     default:
-    return state
+      return state
   }
 }
 
-export const setEntity = (data) => {
+const setEntity = (data) => {
   console.log("entity is set", data);
   return {
     type: 'SET_ENTITY',

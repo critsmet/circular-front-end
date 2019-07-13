@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import { connect } from 'react-redux'
 import { checkForEntity } from './appMod'
 
@@ -10,14 +10,9 @@ import MainContainer from '../main/MainContainer'
 //probably best is to set loggedInEntity to not_checked first, and then check.
 
 const App = ({lIE, checkForEntity}) => {
+  useLayoutEffect(checkForEntity, [lIE.id])
 
-  const screenWhileChecking = () => {
-    //renders nothing on the screen while the entity is being checked
-    checkForEntity()
-    return (<div></div>)
-  }
-
-  return lIE === "nc" ? screenWhileChecking() : (
+  return (
     <div id="app">
       <NavContainer/>
       <MainContainer/>
@@ -31,4 +26,4 @@ const mapStateToProps = ({app}) => {
   }
 }
 
-export default connect(mapStateToProps, { checkForEntity })(App);
+export default connect(mapStateToProps, {checkForEntity})(App);

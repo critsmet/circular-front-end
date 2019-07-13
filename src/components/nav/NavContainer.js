@@ -1,22 +1,27 @@
 import React from 'react'
 import { connect} from 'react-redux'
 
-const NavContainer = ( {lIE} ) => {
+import Nav from './Nav'
 
+const logInHeader = (
+    <div id="form-logo">
+      CIRCULAR
+    </div>
+)
+
+const NavContainer = ( {lIE} ) => {
   return (
     <div id="nav-container">
-      <div id="logo" className={lIE ? null : "center"}>
-        CIRCULAR
-      </div>
+      {lIE ? <Nav></Nav> : logInHeader}
     </div>
   )
+
 }
 
-
 const mapStateToProps = ({ app }) => {
-  return {
+  return ({
     lIE: app.loggedInEntity
-  }
+  })
 }
 
 export default connect(mapStateToProps)(NavContainer)
