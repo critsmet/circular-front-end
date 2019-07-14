@@ -5,7 +5,6 @@ import { getEvents } from './eventsMod'
 import WeekViewDayColumn from './WeekViewDayColumn'
 
 const WeekView = ({eS, view, getEvents}) => {
-  console.log(eS);
 
   useLayoutEffect(getEvents, [view])
 

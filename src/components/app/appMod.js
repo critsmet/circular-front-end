@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
     case 'SET_ENTITY':
       return {
         loggedInEntity: action.payload
-      }
+      };
     default:
       return state
   }
@@ -22,7 +22,7 @@ const setEntity = (data) => {
   }
 }
 
-export const submitSignUpForm = (form) => dispatch => {
+export const submitSignUpForm = (form, history) => dispatch => {
   fetch("http://localhost:3000/entities", {
     method: "POST",
     headers: {
@@ -46,7 +46,7 @@ export const submitSignUpForm = (form) => dispatch => {
   })
 }
 
-export const submitLogInForm = (form) => dispatch => {
+export const submitLogInForm = (form, history) => dispatch => {
   fetch("http://localhost:3000/login", {
     method: "POST",
     headers: {
@@ -63,18 +63,21 @@ export const submitLogInForm = (form) => dispatch => {
   .then( res => {
     console.log("in the res, about to set token and dispatch");
     localStorage.setItem('token', res.data.id)
+    history.push('/')
     dispatch(setEntity(res))
   })
 }
 
-export const checkForEntity = () => dispatch => {
-  console.log("checking for entity");
+export const checkForEntity = (history) => dispatch => {
   let stored_entity = localStorage.getItem('token')
   if (stored_entity) {
     fetch(`http://localhost:3000/entities/${stored_entity}`)
       .then(res => res.json())
-      .then(res => dispatch(setEntity(res)))
+      .then(res => {
+        dispatch(setEntity(res))
+      })
   } else {
+    history.push('/account')
     dispatch(setEntity(false))
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { submitLogInForm } from '../app/appMod'
@@ -9,7 +10,7 @@ const initialState = {
   password: ''
 }
 
-const LogInForm = ( {submitLogInForm} ) => {
+const LogInForm = ( {submitLogInForm, history} ) => {
 
   const [logInState, changeLogInState] = useState(initialState)
 
@@ -18,7 +19,7 @@ const LogInForm = ( {submitLogInForm} ) => {
   const continuePage = (e) => {
     if ((e.keyCode === 13 && logInState['page'] === 2) && logInState['password']) {
       console.log("VALID FORM!", logInState);
-      submitLogInForm(logInState)
+      submitLogInForm(logInState, history)
     } else if (e.keyCode === 13) {
       changeLogInState(prevState => ({...prevState, page: prevState['page'] + 1}))
     }
@@ -37,10 +38,10 @@ const LogInForm = ( {submitLogInForm} ) => {
     }
   }
   return (
-    <div id="entity-form-input-container">
+    <div id="entity-form-input-container" className="form-container">
       {pickInputField()}
     </div>
     )
   }
 
-export default connect(null, { submitLogInForm })(LogInForm)
+export default connect(null, { submitLogInForm })(withRouter(LogInForm))

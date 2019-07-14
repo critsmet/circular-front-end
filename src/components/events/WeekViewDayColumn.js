@@ -9,20 +9,19 @@ const WeekViewDayColumn = ({day}) => {
 
   const formatEvents = (events) => {
     return events.map(event => {
-      debugger
-      return <WeekViewEvent event={event.attributes}/>
+      return <WeekViewEvent key={event.id} event={event}/>
     })
   }
 
   return (
-    <div class="week-day-column-container">
-      <span class="left-info bold">
+    <div className="week-day-column-container">
+      <span className="left-info bold">
         {weekday}
       </span>
-      <span class="right-info">
+      <span className="right-info">
         {date}
       </span>
-      <div class="week-day-column">
+      <div className="week-day-column">
         {formatEvents(day.events.data)}
       </div>
     </div>

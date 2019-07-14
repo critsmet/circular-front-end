@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import discover from "../../assets/discover.png"
 import week from "../../assets/week.png"
@@ -9,9 +10,11 @@ const Nav = () => {
 
   return (
     <div id="nav">
-      <div id="main-logo">
-        CIRCULAR
-      </div>
+      <Link to="/">
+        <div id="main-logo">
+          CIRCULAR
+        </div>
+      </Link>
       <div id="nav-search-container">
         <input id="nav-search" type="text"/>
       </div>

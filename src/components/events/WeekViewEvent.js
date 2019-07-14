@@ -1,27 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const WeekViewEvent = ({event}) => {
+const WeekViewEvent = ({event, event: { attributes }}) => {
   return (
-    <div class="week-view-event">
-      <div class="week-view-info">
-        <span class="left-info">
-          {event.time}
+    <div className="week-view-event">
+      <div className="week-view-info">
+        <span className="left-info">
+          {attributes.time}
         </span>
-        <span class="right-info">
-          {event.category}
+        <span className="right-info">
+          {attributes.category}
         </span>
       </div>
-      <img src={event.image_url}/>
-      <div class="event-name bold">
-        {event.name}
+      <img alt={attributes.name + "-image"} src={attributes.image_url}/>
+      <div className="event-name bold">
+        <Link to={"/events/" + event.id}>
+          {attributes.name}
+        </Link>
       </div>
       <br/>
-      <div class="event-description">
-        {event.description}
+      <div className="event-description">
+        {attributes.description}
       </div>
       <br/>
-      <div class="event-location">
-        {event.location}
+      <div className="event-location">
+        {attributes.location}
       </div>
       <br/>
         TAGS GO HERE
