@@ -7,6 +7,11 @@ html {
   font-size: 100%
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 body {
   margin: 0;
   background-color: #0B0A21;
@@ -201,6 +206,29 @@ a {
 }
 
 .entity-show-events-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.search-event {
+  margin: 10px;
+  width: 300px;
+  height: 100px;
+  border: 2px solid #48EB97;
+}
+
+.search-event img {
+  vertical-align: top;
+  float: left;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
+#search-events-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

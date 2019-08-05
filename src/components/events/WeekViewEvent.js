@@ -9,7 +9,9 @@ const WeekViewEvent = ({event, event: { attributes }}) => {
           {attributes.time}
         </span>
         <span className="right-info">
+        <Link to={"/search?filter=category&param=" + attributes.category}>
           {attributes.category}
+        </Link>
         </span>
       </div>
       <img alt={attributes.name + "-image"} src={attributes.image_url}/>
