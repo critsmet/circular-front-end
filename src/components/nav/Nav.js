@@ -1,13 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import discover from "../../assets/discover.png"
 import week from "../../assets/week.png"
 import day from "../../assets/day.png"
 import profile from "../../assets/profile.png"
 
-const Nav = () => {
-
+const Nav = ({history, lIE}) => {
+  console.log(lIE);
   return (
     <div id="nav">
       <Link to="/">
@@ -22,10 +23,16 @@ const Nav = () => {
         <img src={discover} alt="Discover"/>
         <img src={week} alt="Week"/>
         <img src={day} alt="Day"/>
-        <img src={profile} alt="Profile"/>
+        <img src={profile} alt="Profile" onClick={() => history.push('/entities/' + lIE.id)}/>
       </div>
     </div>
   )
 }
 
-export default Nav
+const mapStateToProps = ({app}) => {
+  return {
+    lIE: app.loggedInEntity
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(Nav))

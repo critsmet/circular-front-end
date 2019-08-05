@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'SET_ENTITY':
       return {
-        loggedInEntity: action.payload
+        loggedInEntity: action.payload.data
       };
     default:
       return state
@@ -42,6 +42,7 @@ export const submitSignUpForm = (form, history) => dispatch => {
   .then( res => {
     console.log("in the res, about to set token and dispatch");
     localStorage.setItem('token', res.data.id)
+    history.push('/')
     dispatch(setEntity(res))
   })
 }

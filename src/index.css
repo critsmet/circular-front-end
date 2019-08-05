@@ -81,14 +81,14 @@ a {
   padding-bottom: 1%;
 }
 
-#event-show-container {
+#show-container {
   width: 100%;
   border-color: #48EB97;
   border-width: 2px;
   border-style: solid;
 }
 
-#event-show-details-container {
+#show-details-container {
   font-size: 1.75em;
   width: 52.5%;
   padding-left: 2.5%;
@@ -96,13 +96,13 @@ a {
   vertical-align: top;
 }
 
-.event-show-info {
+.show-info {
   margin-left: 5%;
 }
 
-.event-show-image {
+.show-image {
   width: 42.5%;
-  vertical-align: bottom;
+  vertical-align: top;
   display: inline-block;
 }
 
@@ -188,4 +188,22 @@ a {
 .week-view-event img {
   object-fit: cover;
   width: 100%;
+}
+
+.entity-show-event {
+  margin: 0 3.5px;
+}
+
+.entity-show-event img {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.entity-show-events-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
 }

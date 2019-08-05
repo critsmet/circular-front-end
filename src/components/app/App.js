@@ -9,6 +9,7 @@ import { checkForEntity } from './appMod'
 import NavContainer from '../nav/NavContainer'
 import WeekViewContainer from '../events/WeekViewContainer'
 import EventShow from '../events/EventShow'
+import EntityShow from '../entities/EntityShow'
 import SelectForm from '../entity-forms/SelectForm'
 import SignUpForm from '../entity-forms/SignUpForm'
 import LogInForm from '../entity-forms/LogInForm'
@@ -29,6 +30,7 @@ const App = ({lIE, checkForEntity, history}) => {
           <Route path="/signup" component={SignUpForm} />
           <Route path="/login" component={LogInForm} />
           <Route path="/events/:id" component={EventShow} />
+          <Route path="/entities/:id" component={EntityShow} />
         </Switch>
     </div>
   )
