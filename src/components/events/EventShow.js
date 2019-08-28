@@ -27,6 +27,8 @@ export const EventShow = ({match}) => {
 
   const [eventShowState, changeState] = useState(initialState)
 
+  console.log("match", match, "evenShowState", eventShowState);
+
   useLayoutEffect(() => getEvent(match.params.id, changeState), [eventShowState.selectedEvent.id])
 
   let {attributes} = eventShowState.selectedEvent

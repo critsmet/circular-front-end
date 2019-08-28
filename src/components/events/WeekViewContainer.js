@@ -1,31 +1,36 @@
-import React, { useLayoutEffect } from 'react'
-import { connect } from 'react-redux'
-import { getEvents } from './eventsMod'
+import React, { useLayoutEffect, useState } from 'react'
 
 import WeekViewDayColumn from './WeekViewDayColumn'
 
-const WeekView = ({eS, view, getEvents}) => {
+const initialState = {schedule: []}
 
-  useLayoutEffect(getEvents, [view])
+const WeekView = () => {
+
+  const [weekEventSchedule, changeWeekEventSchedule] = useState(initialState)
+
+  const getEvents = () => {
+    fetch("http://localhost:3000/events/week")
+      .then(res => res.json())
+      .then(res => changeWeekEventSchedule({schedule: res.data}))
+  }
+  //break this into a helper method to dry up code throughout
+
+  useLayoutEffect(getEvents, [weekEventSchedule.schedule.length])
+  //what is the best way to stop this from repainting? the length of the schedule doesn't seem right.
+  //I only ever want it to happen when the component mounts...
+  //Maybe once the app is more dynamic and the user can change through the weeks, then the selected week will be what triggers the re-fetch
 
   const formatEvents = () => {
-    return eS.slice(0, 4).map(day => {
+    return weekEventSchedule.schedule.slice(0, 4).map(day => {
       return (<WeekViewDayColumn key={day.date} day={day}/>)
     })
   }
 
   return (
     <div id="week-view-container">
-      {formatEvents()}
+      {weekEventSchedule.schedule.length > 0 && formatEvents() }
     </div>
   )
 }
 
-const mapStateToProps = ({events}) => {
-  return {
-    eS: events.eventSchedule,
-    view: "week"
-  }
-}
-
-export default connect(mapStateToProps, {getEvents})(WeekView)
+export default WeekView

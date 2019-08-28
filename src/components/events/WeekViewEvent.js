@@ -14,7 +14,9 @@ const WeekViewEvent = ({event, event: { attributes }}) => {
         </Link>
         </span>
       </div>
-      <img alt={attributes.name + "-image"} src={attributes.image_url}/>
+      <Link to={"/events/" + event.id}>
+        <img alt={attributes.name + "-image"} src={attributes.image_url}/>
+      </Link>
       <div className="event-name bold">
         <Link to={"/events/" + event.id}>
           {attributes.name}
@@ -22,7 +24,7 @@ const WeekViewEvent = ({event, event: { attributes }}) => {
       </div>
       <br/>
       <div className="event-description">
-        {attributes.description}
+        {attributes.description.slice(0, 280) + (attributes.description.length > 280 ? "..." : "")}
       </div>
       <br/>
       <div className="event-location">

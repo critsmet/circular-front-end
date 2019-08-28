@@ -1,5 +1,5 @@
 const initialState = {
-  loggedInEntity: "nc"
+  loggedInEntity: {id: null}
   //nc means not_checked, meaning the app has not checked for a local token
 }
 
@@ -69,6 +69,7 @@ export const submitLogInForm = (form, history) => dispatch => {
   })
 }
 
+
 export const checkForEntity = (history) => dispatch => {
   let stored_entity = localStorage.getItem('token')
   if (stored_entity) {
@@ -79,6 +80,5 @@ export const checkForEntity = (history) => dispatch => {
       })
   } else {
     history.push('/account')
-    dispatch(setEntity(false))
   }
 }

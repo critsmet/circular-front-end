@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         eventSchedule: action.payload
-      };
+      }
     case 'SET_EVENT':
       console.log("setting event");
       return {
@@ -38,6 +38,7 @@ const setEvent = (selectedEvent) => {
   }
 }
 
+//not using these rn: 
 export const getEvents = (schedule) => dispatch => {
   fetch("http://localhost:3000/events")
     .then(res => res.json())

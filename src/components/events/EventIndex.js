@@ -14,17 +14,17 @@ const getEvents = (filter, param, callback) => {
 
 const renderEvent = ({id, attributes}) => {
   return(
-  <div key={attributes.handle + "-" + id} className="search-event">
+  <div key={"event-" + id} className="search-event">
     <Link to={'/events/' + id}>
-      <img alt={attributes.handle + "-photo"} src={attributes.image_url} />
+      <img alt={id + "-photo"} src={attributes.image_url} />
     </Link>
     <span id="show-name" className="show-info">
-      {attributes.name.toUpperCase()}
+      {attributes.name.slice(0, 30) + (attributes.name.length > 30 ? "..." : "")}
     </span>
     <br/>
     <br/>
     <span id="show-description" className="show-info">
-      {attributes.description.toUpperCase()}
+      {attributes.description.slice(0, 30) + (attributes.description.length > 30 ? "..." : "")}
     </span>
   </div>
   )

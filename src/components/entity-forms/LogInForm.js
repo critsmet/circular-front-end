@@ -38,7 +38,7 @@ const LogInForm = ( {submitLogInForm, history} ) => {
     }
   }
   return (
-    <div id="entity-form-input-container" className="form-container">
+    <div id="entity-form-container" className="form-container">
       {pickInputField()}
     </div>
     )
