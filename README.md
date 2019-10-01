@@ -4,4 +4,4 @@ Circular is still in the initial stages of ideation/first-draft development by C
 
 ![](https://res.cloudinary.com/apostrophe/image/upload/v1569949616/CircularDemo.gif)
 
-Circular was boostrapped with [create-react-app](https://github.com/facebook/create-react-app)
+Circular's front end was boostrapped with [create-react-app](https://github.com/facebook/create-react-app)
